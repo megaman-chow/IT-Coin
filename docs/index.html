@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IT COIN — Solana</title>
+  <meta name="description" content="IT COIN — a Solana memecoin. Fast. Fun. Community-first." />
+  <meta property="og:title" content="IT COIN — Solana" />
+  <meta property="og:description" content="Fast. Fun. Community-first." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/og.jpg" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#04070d; --panel:#0b1220; --muted:#9fb3c8; --text:#e6f0ff; --primary:#00d2ff; --accent:#64ffda;
+      --ring: rgba(0,210,255,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:radial-gradient(1200px 600px at 10% -10%,#0b1b2f 0%,rgba(4,7,13,0) 60%),
+      radial-gradient(1200px 600px at 110% 10%,#0a2238 0%,rgba(4,7,13,0) 60%), var(--bg); color:var(--text); line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;z-index:40;backdrop-filter:blur(10px);background:rgba(4,7,13,.6);border-bottom:1px solid rgba(100,255,218,.08)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:42px;height:42px;border-radius:12px;box-shadow:0 0 0 3px rgba(100,255,218,.15);object-fit:cover;background:#09111f}
+    .title{font-size:18px;font-weight:800;letter-spacing:1px}
+    .links{display:flex;gap:16px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:14px;background:linear-gradient(135deg,var(--primary),#5bffea); color:#02131a; font-weight:800; border:1px solid rgba(255,255,255,.15); box-shadow:0 10px 30px rgba(0,210,255,.25); transition:transform .15s ease, box-shadow .15s ease; cursor:pointer}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 14px 40px rgba(0,210,255,.35)}
+    .btn.secondary{background:transparent;color:var(--text);border-color:rgba(255,255,255,.12)}
+    .ghost{padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08)}
+    .mobile-menu{display:none}
+
+    /* Hero */
+    .hero{padding:80px 0 40px}
+    .hero-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+    .badge{font-size:12px;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+    h1{font-size:48px;line-height:1.1;margin:10px 0 14px}
+    .lead{color:var(--muted);font-size:18px;margin-bottom:24px}
+    .cta{display:flex;flex-wrap:wrap;gap:12px}
+    .panel{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);border-radius:18px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.02);padding:18px}
+
+    .statbar{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .stat{padding:14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)}
+    .stat small{display:block;color:var(--muted);font-weight:600}
+    .stat strong{font-size:18px}
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-title{font-size:28px;margin:0 0 12px}
+    .section-sub{color:var(--muted);margin-bottom:24px}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px}
+    .card h3{margin:0 0 8px}
+    .card p{color:var(--muted)}
+
+    .howto{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+    .step{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px}
+    .step strong{display:block;margin-bottom:6px}
+
+    .roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .phase{background:linear-gradient(180deg,rgba(0,210,255,.08),rgba(0,210,255,.02));border:1px solid rgba(0,210,255,.15);border-radius:16px;padding:16px}
+
+    .faq{display:grid;gap:10px}
+    .faq .q{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px}
+    .faq summary{list-style:none;padding:14px 16px;cursor:pointer;font-weight:700}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq p{margin:0;padding:0 16px 16px;color:var(--muted)}
+
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:28px 0;color:var(--muted)}
+
+    /* Utilities */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .muted{color:var(--muted)}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);font-size:13px}
+    .copy{cursor:pointer}
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero{padding-top:48px}
+      .hero-wrap{grid-template-columns:1fr;gap:16px}
+      .cards{grid-template-columns:1fr}
+      .howto{grid-template-columns:1fr 1fr}
+      .roadmap{grid-template-columns:1fr}
+      .statbar{grid-template-columns:1fr}
+      .mobile-menu{display:inline-flex}
+      .links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img class="logo" src="./assets/logo.png" alt="IT COIN" />
+        <div class="title">IT COIN</div>
+      </div>
+      <nav class="links">
+        <a class="ghost" href="#about">About</a>
+        <a class="ghost" href="#tokenomics">Tokenomics</a>
+        <a class="ghost" href="#how">How to Buy</a>
+        <a class="ghost" href="#roadmap">Roadmap</a>
+        <a class="btn secondary" href="#faq">FAQ</a>
+        <a class="btn" href="https://dexscreener.com/solana/cjgczqry5hs9nk2xgwe825eocgzz5vbe3zykq2v46xa" target="_blank" rel="noopener">Chart</a>
+      </nav>
+      <button class="mobile-menu btn secondary" id="menuBtn">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <div class="badges">
+            <span class="badge">SOLANA</span>
+            <span class="badge">FAIR • FUN • FAST</span>
+            <span class="badge">COMMUNITY FIRST</span>
+          </div>
+          <h1>IT COIN — Built for devs, loved by degens.</h1>
+          <p class="lead">Lightning-fast memecoin vibes on Solana. Clean site, clean launch. No promises, just pixels and vibes.</p>
+          <div class="cta">
+            <a class="btn" href="#how">Buy Now</a>
+            <a class="btn secondary" href="https://t.me/yourtelegram" target="_blank" rel="noopener">Telegram</a>
+            <a class="btn secondary" href="https://x.com/yourtwitter" target="_blank" rel="noopener">X (Twitter)</a>
+          </div>
+
+          <div class="panel" style="margin-top:16px">
+            <div class="grid-2">
+              <div>
+                <div class="chip">Contract: <span id="contract" class="copy" title="Click to copy">SOLANA_MINT_ADDRESS</span></div>
+              </div>
+              <div class="statbar">
+                <div class="stat"><small>Chain</small><strong>Solana</strong></div>
+                <div class="stat"><small>Liquidity</small><strong>—</strong></div>
+                <div class="stat"><small>Tax</small><strong>0% / 0%</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <img src="./assets/hero.png" alt="IT COIN" style="width:100%;border-radius:14px;border:1px solid rgba(255,255,255,.08)"/>
+          <div class="muted" style="margin-top:10px;font-size:13px">Tip: Replace images in <code>/assets</code> (logo.png, hero.png, og.jpg).</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">What is IT COIN?</h2>
+        <p class="section-sub">A clean, no-frills memecoin site you can ship in minutes. GitHub Pages-ready with a single <code>/docs/index.html</code> file. Replace placeholders, push, and you’re live.</p>
+        <div class="cards">
+          <div class="card"><h3>Fast Launch</h3><p>Single-file build. Drop into <code>/docs</code> or <code>/public</code>, enable Pages, done.</p></div>
+          <div class="card"><h3>DeFi Links</h3><p>Buttons for Chart, Buy, TG, X. Wire them to Raydium, Pump.fun, or a custom swap.</p></div>
+          <div class="card"><h3>Responsive</h3><p>Looks great on phones. Subtle glow, gradients, and crisp typography.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tokenomics">
+      <div class="container">
+        <h2 class="section-title">Tokenomics</h2>
+        <p class="section-sub">Tweak these values to match your launch.</p>
+        <div class="cards">
+          <div class="card"><h3>Supply</h3><p><strong>1,000,000,000</strong> IT</p></div>
+          <div class="card"><h3>Taxes</h3><p><strong>0% buy / 0% sell</strong></p></div>
+          <div class="card"><h3>Liquidity</h3><p>Locked/Burned — <em>update with tx link</em></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="container">
+        <h2 class="section-title">How to Buy</h2>
+        <p class="section-sub">Use Raydium or Pump.fun. Always verify the contract.</p>
+        <div class="howto">
+          <div class="step"><strong>1. Wallet</strong><div>Install Phantom or Backpack. Fund with SOL.</div></div>
+          <div class="step"><strong>2. Open DEX</strong><div>Go to Raydium or Pump.fun.</div></div>
+          <div class="step"><strong>3. Paste Contract</strong><div>Use <span class="copy" data-copy="SOLANA_MINT_ADDRESS">SOLANA_MINT_ADDRESS</span>.</div></div>
+          <div class="step"><strong>4. Set Slippage</strong><div>Start low, increase if needed.</div></div>
+          <div class="step"><strong>5. Swap</strong><div>Confirm. Add to favorites for quick access.</div></div>
+        </div>
+        <div style="margin-top:16px" class="cta">
+          <a class="btn" href="#" id="buyRaydium">Buy on Raydium</a>
+          <a class="btn secondary" href="https://dexscreener.com/solana/cjgczqry5hs9nk2xgwe825eocgzz5vbe3zykq2v46xa" target="_blank" rel="noopener">View Chart</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="container">
+        <h2 class="section-title">Roadmap</h2>
+        <p class="section-sub">No hype, just realistic milestones.</p>
+        <div class="roadmap">
+          <div class="phase"><strong>Phase 1</strong><ul>
+            <li>Site live on GitHub Pages</li>
+            <li>Token launch + LP</li>
+            <li>Dexscreener + TG</li>
+          </ul></div>
+          <div class="phase"><strong>Phase 2</strong><ul>
+            <li>Basic analytics dashboard</li>
+            <li>Whale alerts (Helius)</li>
+            <li>Light marketing push</li>
+          </ul></div>
+          <div class="phase"><strong>Phase 3</strong><ul>
+            <li>Premium bot features</li>
+            <li>DAO fund & proposals</li>
+            <li>Partnership swaps</li>
+          </ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq">
+          <details class="q"><summary>Is this financial advice?</summary><p>No. IT COIN is a meme. Do your own research and never risk what you can’t afford to lose.</p></details>
+          <details class="q"><summary>Where can I buy?</summary><p>Raydium or Pump.fun. Use the official contract only: <code>SOLANA_MINT_ADDRESS</code>.</p></details>
+          <details class="q"><summary>Is there a tax?</summary><p>Default template uses 0/0. Update if your tokenomics differ.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>© <span id="year"></span> IT COIN • Built on Solana</div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <a class="ghost" href="https://t.me/yourtelegram" target="_blank" rel="noopener">Telegram</a>
+          <a class="ghost" href="https://x.com/yourtwitter" target="_blank" rel="noopener">X</a>
+          <a class="ghost" href="https://dexscreener.com/solana/cjgczqry5hs9nk2xgwe825eocgzz5vbe3zykq2v46xa" target="_blank" rel="noopener">Dexscreener</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple mobile menu: reveal nav links in small screens
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      const header = document.querySelector('header .links');
+      const isOpen = header && getComputedStyle(header).display !== 'none';
+      if(header){ header.style.display = isOpen ? 'none' : 'flex'; }
+    });
+
+    // Copy to clipboard for contract
+    const contractEl = document.getElementById('contract');
+    if (contractEl) {
+      contractEl.addEventListener('click', () => copyText(contractEl.textContent));
+    }
+    document.querySelectorAll('[data-copy]').forEach(el => {
+      el.addEventListener('click', () => copyText(el.dataset.copy));
+    });
+    function copyText(text){
+      if(!text) return;
+      navigator.clipboard.writeText(text.trim());
+      toast('Copied to clipboard');
+    }
+
+    // Raydium deep link (replace with actual mint & route)
+    const MINT = 'SOLANA_MINT_ADDRESS'; // TODO: replace
+    const RAYDIUM_URL = `https://raydium.io/swap/?inputCurrency=sol&outputCurrency=${MINT}`;
+    document.getElementById('buyRaydium').setAttribute('href', RAYDIUM_URL);
+
+    // Tiny toast
+    function toast(msg){
+      const t = document.createElement('div');
+      t.textContent = msg;
+      t.style.position = 'fixed'; t.style.bottom = '24px'; t.style.left = '50%'; t.style.transform = 'translateX(-50%)';
+      t.style.padding = '10px 14px'; t.style.background = 'rgba(0,0,0,.7)'; t.style.color = '#fff'; t.style.borderRadius = '12px'; t.style.border = '1px solid rgba(255,255,255,.15)'; t.style.backdropFilter='blur(6px)';
+      document.body.appendChild(t);
+      setTimeout(()=> t.remove(), 1600);
+    }
+  </script>
+</body>
+</html>
